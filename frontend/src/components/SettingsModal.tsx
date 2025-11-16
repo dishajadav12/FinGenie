@@ -9,12 +9,24 @@ import {
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Settings, Mail, Bell, Calendar, Bot } from "lucide-react";
+import { Settings, Mail, Bell, Calendar, Bot, Download, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { useIngestSampleEmails } from "@/hooks/useApi";
 
 export const SettingsModal = () => {
+  const [open, setOpen] = useState(false);
+  const ingestMutation = useIngestSampleEmails();
+
+  const handleIngest = async () => {
+    try {
+      await ingestMutation.mutateAsync();
+    } catch (error) {
+      console.error("Ingest failed:", error);
+    }
+  };
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon" className="fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg glass-effect">
           <Settings className="h-5 w-5" />
@@ -32,6 +44,39 @@ export const SettingsModal = () => {
         </DialogHeader>
         
         <div className="space-y-6 py-4">
+          {/* Import Data */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <Download className="h-4 w-4 text-muted-foreground" />
+              <Label>Import Sample Data</Label>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Load sample bills for testing and demonstration
+            </p>
+            <Button 
+              onClick={handleIngest}
+              disabled={ingestMutation.isPending}
+              className="w-full"
+            >
+              {ingestMutation.isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Ingesting...
+                </>
+              ) : (
+                <>
+                  <Download className="h-4 w-4 mr-2" />
+                  Ingest Sample Data
+                </>
+              )}
+            </Button>
+            {ingestMutation.isSuccess && (
+              <p className="text-sm text-success">✓ Data ingested successfully!</p>
+            )}
+            {ingestMutation.isError && (
+              <p className="text-sm text-destructive">✗ Failed to ingest data</p>
+            )}
+          </div>
           {/* Email Connection */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">

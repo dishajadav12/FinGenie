@@ -1,0 +1,23 @@
+[
+  {
+    "id": "eml-001",
+    "email": "demo@user.com",
+    "from": "Comcast Billing <no-reply@xfinity.com>",
+    "subject": "Your Comcast bill is ready — $75 due Nov 28",
+    "body": "Hello, your Xfinity Internet 200 Mbps plan bill is ready. Amount due: $75.00. Payment due date: 2025-11-28. Pay online to avoid late fees."
+  },
+  {
+    "id": "eml-002",
+    "email": "demo@user.com",
+    "from": "Mint Mobile <billing@mintmobile.com>",
+    "subject": "Mint Mobile: $55 due on 2025-11-26",
+    "body": "Thanks for choosing Mint. Your 20GB plan renews soon. Amount: USD 55. Due on 2025-11-26. Late payment may suspend service."
+  },
+  {
+    "id": "eml-003",
+    "email": "demo@user.com",
+    "from": "PG&E <no-reply@pge.com>",
+    "subject": "PG&E statement available",
+    "body": "Your monthly electricity statement is available. Total due $120. Please pay by 2025-12-02 to avoid late fees."
+  }
+]

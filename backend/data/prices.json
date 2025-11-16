@@ -1,0 +1,20 @@
+{
+  "internet": [
+    { "vendor": "Comcast", "plan": "200 Mbps", "price": 75 },
+    { "vendor": "ZipFiber", "plan": "300 Mbps", "price": 50 },
+    { "vendor": "AT&T Fiber", "plan": "300 Mbps", "price": 55 }
+  ],
+  "phone": [
+    { "vendor": "Mint Mobile", "plan": "20GB", "price": 55 },
+    { "vendor": "Lyka", "plan": "20GB", "price": 35 },
+    { "vendor": "T-Mobile", "plan": "Essentials", "price": 60 }
+  ],
+  "streaming": [
+    { "vendor": "Netflix", "plan": "Standard", "price": 15.49 },
+    { "vendor": "Streamo", "plan": "HD", "price": 9.99 }
+  ],
+  "utilities": [
+    { "vendor": "PG&E", "plan": "Residential Avg", "price": 120 },
+    { "vendor": "GreenLight Power", "plan": "Basic", "price": 95 }
+  ]
+}
